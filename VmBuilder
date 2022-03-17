@@ -24,7 +24,7 @@
 
         public VirtualMachine Build(string program)
         {
-            var vm = new V
+            var vm = new VirtualMachine(program, memSize);
             return new VirtualMachine(program, memSize);
         }
     }
