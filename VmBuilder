@@ -1,0 +1,30 @@
+    public class VmBuilder 
+    {
+        private readonly int memSize;
+        private Func<int> read;
+        private Action<char> write;
+
+        public VmBuilder(int memSize)
+        {
+            this.memSize = memSize;
+        }
+
+        public VmBuilder AddBasicCommands(Func<int> read, Action<char> write)
+        {
+            this.read = read;
+            this.write = write;
+            return this;
+        }
+
+        public VmBuilder AddLoopCommands()
+        {
+            //...
+            return this;
+        }
+
+        public VirtualMachine Build(string program)
+        {
+            var vm = new V
+            return new VirtualMachine(program, memSize);
+        }
+    }
