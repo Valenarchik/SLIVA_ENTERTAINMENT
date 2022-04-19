@@ -14,6 +14,6 @@ namespace WantApp
         {
             InitializeComponent();
         }
-        // Привет Паша
+        // Привет Серега
     }
 }
