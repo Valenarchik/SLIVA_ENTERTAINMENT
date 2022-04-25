@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WantApp" xmlns:viewmodels="clr-namespace:WantApp"
+             x:Class="WantApp.Views.Favorites"
+             BackgroundColor="#14131C">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label TextColor="Azure"
+                   Text="Favorites"
+                   FontSize="30"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+    <!-- <ContentPage.Resources> -->
+    <!--     <ResourceDictionary> -->
+    <!--         <Style x:Key="ButtonStyle" TargetType="Button"> -->
+    <!--             <Setter Property="BackgroundColor" Value="#02000F" /> -->
+    <!--             <Setter Property="BorderColor" Value="Azure" /> -->
+    <!--             <Setter Property="BorderWidth" Value="2" /> -->
+    <!--             <Setter Property="CornerRadius" Value="15" /> -->
+    <!--             <Setter Property="WidthRequest" Value="55" /> -->
+    <!--             <Setter Property="HeightRequest" Value="55" /> -->
+    <!--             <Setter Property="FontSize" Value="10"/> -->
+    <!--             <Setter Property="TextColor" Value="Azure"/> -->
+    <!--         </Style> -->
+    <!--     </ResourceDictionary> -->
+    <!-- </ContentPage.Resources> -->
+    <!-- -->
+    <!-- <StackLayout Padding="20" Orientation="Vertical"> -->
+    <!-- -->
+    <!--     <Button HorizontalOptions="End" Style="{StaticResource ButtonStyle}" /> -->
+    <!--     <BoxView HeightRequest="450" /> -->
+    <!--     <Frame HorizontalOptions="Center" BackgroundColor="#22222C" CornerRadius="15" Padding="10 "> -->
+    <!--         <StackLayout Orientation="Horizontal" Spacing="12"> -->
+    <!--             <Button Style="{StaticResource ButtonStyle}" x:Name="buttonChangeTheme" Text="Тема" /> -->
+    <!--             <Button Style="{StaticResource ButtonStyle}" x:Name="buttonFavorites" Text="Избранное" /> -->
+    <!--             <Button Style="{StaticResource ButtonStyle}" x:Name="buttonMainMap" Text="Карта" BackgroundColor="Azure" TextColor="Black"/> -->
+    <!--             <Button Style="{StaticResource ButtonStyle}" x:Name="buttonButtonMenu" Text="Меню" /> -->
+    <!--             <Button Style="{StaticResource ButtonStyle}" x:Name="buttonSettings" Text="Настройки" /> -->
+    <!--         </StackLayout> -->
+    <!--     </Frame> -->
+    <!-- </StackLayout> -->
+</ContentPage>
