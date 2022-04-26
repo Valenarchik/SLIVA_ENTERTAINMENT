@@ -10,19 +10,17 @@ namespace WantApp.ViewModels
 {
     class AllPagesViewModel :BaseViewModel
     {
-        private List<Theme> themes;
+        private readonly List<Theme> themes;
         public Theme CurrentTheme { get; private set; }
-
-        public ICommand SetThemeCommand;
+        
         public AllPagesViewModel(Themes theme)
         {
             themes = new List<Theme>
             {
-                new Theme(Color.Azure, Color.Black, Color.Black,Color.Black),
-                new Theme(Color.Black, Color.Azure, Color.Azure,Color.Azure)
+                new Theme(Color.Azure, Color.Black, Color.Black),
+                new Theme(Color.Black, Color.Azure, Color.Azure)
             };
             CurrentTheme = themes[(int)theme];
-            SetThemeCommand = new Command(SetTheme);
         }
         public void SetTheme(object theme)
         {

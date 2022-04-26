@@ -4,5 +4,29 @@
              x:Class="WantApp.App">
     <Application.Resources>
 
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{Binding CurrentTheme.BackgroundColor}" />
+                <Setter Property="BorderColor" Value="{Binding CurrentTheme.BorderColor}" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="WidthRequest" Value="55" />
+                <Setter Property="FontSize" Value="28" /> 
+                <Setter Property="Margin" Value="0,0,5,5" />
+                <Setter Property ="FontFamily" Value="FRACTAL.ttf#FRACTAL"/>
+                <Setter Property="HeightRequest" Value="55" />
+                <Setter Property="TextColor" Value="{Binding CurrentTheme.TextColor}"/>
+            </Style>
+
+            <Style x:Key ="TextStyle"  TargetType ="Label">
+                <Setter Property ="FontFamily" Value="FRACTAL.ttf#FRACTAL"/>
+                <Setter Property="TextColor" Value="{Binding CurrentTheme.TextColor}"/>
+            </Style>
+
+            <Style x:Key ="PageStyle"  TargetType ="ContentPage">
+                <Setter Property="BackgroundColor" Value="{Binding CurrentTheme.BackgroundColor}" />
+            </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

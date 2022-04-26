@@ -15,7 +15,6 @@ namespace WantApp.Views
         public AppShell()
         {
             InitializeComponent();
-            BindingContext = Interface.Model;
         }
     }
 }

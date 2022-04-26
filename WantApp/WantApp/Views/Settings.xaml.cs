@@ -15,7 +15,6 @@ namespace WantApp.Views
         public Settings()
         {
             InitializeComponent();
-            BindingContext = Interface.Model;
         }
     }
 }

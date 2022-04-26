@@ -5,11 +5,7 @@
              BackgroundColor="{Binding CurrentTheme.BackgroundColor}">
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="{Binding CurrentTheme.TextColor}"
-                   Text="Map"
-                   FontSize="30"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
+            <Image Source ="map.png" Margin="15"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

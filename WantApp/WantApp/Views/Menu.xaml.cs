@@ -15,7 +15,6 @@ namespace WantApp.Views
         public Menu()
         {
             InitializeComponent();
-            BindingContext = Interface.Model;
         }
     }
 }

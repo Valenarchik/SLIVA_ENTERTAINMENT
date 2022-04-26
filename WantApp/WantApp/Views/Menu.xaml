@@ -5,9 +5,10 @@
              BackgroundColor="{Binding CurrentTheme.BackgroundColor}">
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="{Binding CurrentTheme.TextColor}"
-                   Text="Menu"
-                   FontSize="30"
+            <Label Style="{StaticResource TextStyle}"
+                   Text="В этом окне предполагается реализовать меню, в котором пользователь сможет изменять настройки стартовых кнопок и производить подгонку приложения под свои нужды"
+                   FontSize="35"
+                   HorizontalTextAlignment="Center"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />
         </StackLayout>

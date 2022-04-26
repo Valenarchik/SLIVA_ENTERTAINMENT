@@ -6,18 +6,29 @@
              BackgroundColor="{Binding CurrentTheme.BackgroundColor}">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Black Theme"
+            <Button Text="темная темя"
+                    Style="{StaticResource ButtonStyle}"
                     VerticalOptions="Center"
                     Margin="15"
                     x:Name="ChangeThemeToBlack"
                     Clicked="ChangeThemeToBlack_OnClicked"
                     CommandParameter="Themes.BlackTheme"/>
-            <Button Text="White Theme"
+            <Button Text="Светлая тема"
+                    Style="{StaticResource ButtonStyle}"
                     VerticalOptions="Center"
                     Margin="15"
                     x:Name="ChangeThemeToWhite"
-                    Clicked="ChangeThemeToWhite_OnClicked"
-                    />
+                    Clicked="ChangeThemeToWhite_OnClicked"/>
+            <Button Text="+"
+                    Style="{StaticResource ButtonStyle}"
+                    VerticalOptions="Center"
+                    Margin="15"
+                    x:Name="Plus"/>
+            <Label Style="{StaticResource TextStyle}"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"
+                   Text="В данном окне пользователь сможет изменить тему приложения или добавить свою, состоящую из трех цветов"
+                />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

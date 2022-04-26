@@ -9,10 +9,24 @@
     <ContentPage.Content>
         <StackLayout>
             <Label TextColor="{Binding CurrentTheme.TextColor}"
-                   Text="Favorites"
+                   Text="Здесь будут размещены кнопки, добавленные пользователем в избранные. Так пользователь сможет экономить свое время на поиске часто используемых кнопок"
                    FontSize="30"
-                   VerticalOptions="CenterAndExpand" 
+                   Style="{StaticResource TextStyle}"
+                   VerticalOptions="StartAndExpand" 
+                   HorizontalTextAlignment="Center"
                    HorizontalOptions="CenterAndExpand" />
+            <Button Text="Кнопки"
+                    Style="{StaticResource ButtonStyle}"
+                    VerticalOptions="StartAndExpand"/>
+            <Button Text="Будут"
+                    Style="{StaticResource ButtonStyle}"
+                    VerticalOptions="StartAndExpand"/>
+            <Button Text="Выглядеть"
+                    Style="{StaticResource ButtonStyle}"
+                    VerticalOptions="StartAndExpand"/>
+            <Button Text="Так"
+                    Style="{StaticResource ButtonStyle}"
+                    VerticalOptions="StartAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
     <!-- <ContentPage.Resources> -->

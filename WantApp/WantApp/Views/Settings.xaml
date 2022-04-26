@@ -5,10 +5,11 @@
              BackgroundColor="{Binding CurrentTheme.BackgroundColor}">
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="{Binding CurrentTheme.TextColor}"
-                   Text="Settings"
-                   FontSize="30"
-                   VerticalOptions="CenterAndExpand" 
+            <Label Style="{StaticResource TextStyle}"
+                   Text="Панель настроек будет включать в себя возможность смены языка, корректировка звука и прочие параметры, регулировка которых позволит сделать приложение удобнее для пользователя"
+                   FontSize="35"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>

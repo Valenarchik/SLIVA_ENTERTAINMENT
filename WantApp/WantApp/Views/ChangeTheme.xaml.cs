@@ -18,19 +18,16 @@ namespace WantApp.Views
         public ChangeTheme()
         {
             InitializeComponent();
-            BindingContext = Interface.Model;
         }
 
         private void ChangeThemeToBlack_OnClicked(object sender, EventArgs e)
         {
-            Interface.Model = new AllPagesViewModel(Themes.BlackTheme);
-            InvalidateMeasure();
+            Interface.Model.SetTheme(Themes.BlackTheme);
         }
 
         private void ChangeThemeToWhite_OnClicked(object sender, EventArgs e)
         {
-            Interface.Model = new AllPagesViewModel(Themes.WhiteTheme);
-            InvalidateMeasure();
+            Interface.Model.SetTheme(Themes.WhiteTheme);
         }
     }
 }

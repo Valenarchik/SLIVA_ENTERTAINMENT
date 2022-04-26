@@ -15,7 +15,6 @@ namespace WantApp.Views
         public Favorites()
         {
             InitializeComponent();
-            BindingContext = Interface.Model;
         }
     }
 }

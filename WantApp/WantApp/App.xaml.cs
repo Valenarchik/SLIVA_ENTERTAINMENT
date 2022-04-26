@@ -11,6 +11,7 @@ namespace WantApp
         {
             InitializeComponent();
             MainPage = new AppShell();
+            BindingContext = Interface.Model;
         }
 
         protected override void OnStart()
