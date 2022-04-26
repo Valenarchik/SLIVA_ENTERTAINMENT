@@ -16,8 +16,7 @@
                     VerticalOptions="Center"
                     Margin="15"
                     x:Name="ChangeThemeToWhite"
-                    Clicked="ChangeThemeToWhite_OnClicked"
-                    />
+                    Clicked="ChangeThemeToWhite_OnClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
