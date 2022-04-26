@@ -9,19 +9,19 @@
              UnselectedColor = "{Binding CurrentTheme.UnselectedColor}">
 
     <TabBar>
-        <Tab Icon="Paint_Palette.png">
+        <Tab Icon="themes.png">
             <ShellContent ContentTemplate="{DataTemplate views:ChangeTheme}"/>
         </Tab>
         
-        <Tab  Icon="star.png">
+        <Tab  Icon="favorites.png">
             <ShellContent ContentTemplate="{DataTemplate views:Favorites}"/>
         </Tab>
 
-        <Tab Icon="earth.png">
+        <Tab Icon="mapIcon.png">
             <ShellContent ContentTemplate="{DataTemplate views:Map}"/>
         </Tab>
 
-        <Tab Icon="list_task.png">
+        <Tab Icon="menu.png">
             <ShellContent ContentTemplate="{DataTemplate views:Menu}"/>
         </Tab>
 
