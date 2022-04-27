@@ -1,4 +1,5 @@
 ﻿using System;
+using WantApp.ThemesModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using WantApp.Views;
@@ -9,9 +10,8 @@ namespace WantApp
     {
         public App()
         {
-            InitializeComponent();
             MainPage = new AppShell();
-            BindingContext = Interface.Model;
+            InitializeComponent();
         }
 
         protected override void OnStart()

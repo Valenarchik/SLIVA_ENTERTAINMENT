@@ -4,10 +4,11 @@
              x:Class="WantApp.App">
     <Application.Resources>
 
-        <ResourceDictionary>
+        <ResourceDictionary Source="ThemesModel/LightTheme.xaml" >
             <Style x:Key="ButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{Binding CurrentTheme.BackgroundColor}" />
-                <Setter Property="BorderColor" Value="{Binding CurrentTheme.BorderColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
+                <Setter Property="BorderColor" Value="{DynamicResource SecondaryColor}" />
                 <Setter Property="BorderWidth" Value="2" />
                 <Setter Property="CornerRadius" Value="15" />
                 <Setter Property="WidthRequest" Value="55" />
@@ -15,18 +16,23 @@
                 <Setter Property="Margin" Value="0,0,5,5" />
                 <Setter Property ="FontFamily" Value="FRACTAL.ttf#FRACTAL"/>
                 <Setter Property="HeightRequest" Value="55" />
-                <Setter Property="TextColor" Value="{Binding CurrentTheme.TextColor}"/>
             </Style>
 
             <Style x:Key ="TextStyle"  TargetType ="Label">
                 <Setter Property ="FontFamily" Value="FRACTAL.ttf#FRACTAL"/>
-                <Setter Property="TextColor" Value="{Binding CurrentTheme.TextColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}" />
             </Style>
 
             <Style x:Key ="PageStyle"  TargetType ="ContentPage">
-                <Setter Property="BackgroundColor" Value="{Binding CurrentTheme.BackgroundColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
             </Style>
 
+            <Style x:Key ="ShellStyle"  TargetType ="Shell">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+                <Setter Property="TitleColor" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="UnselectedColor" Value="{DynamicResource SecondaryColor}"/>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

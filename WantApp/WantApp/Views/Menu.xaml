@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WantApp.Views.Menu"
-             BackgroundColor="{Binding CurrentTheme.BackgroundColor}">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Style="{StaticResource TextStyle}"
+            <Label Style="{DynamicResource TextStyle}"
                    Text="В этом окне предполагается реализовать меню, в котором пользователь сможет изменять настройки стартовых кнопок и производить подгонку приложения под свои нужды"
                    FontSize="35"
                    HorizontalTextAlignment="Center"

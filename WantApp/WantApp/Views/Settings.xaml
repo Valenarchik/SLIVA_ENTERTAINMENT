@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WantApp.Views.Settings"
-             BackgroundColor="{Binding CurrentTheme.BackgroundColor}">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Style="{StaticResource TextStyle}"
+            <Label Style="{DynamicResource TextStyle}"
                    Text="Панель настроек будет включать в себя возможность смены языка, корректировка звука и прочие параметры, регулировка которых позволит сделать приложение удобнее для пользователя"
                    FontSize="35"
                    HorizontalTextAlignment="Center"

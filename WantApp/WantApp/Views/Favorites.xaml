@@ -4,28 +4,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WantApp" xmlns:viewmodels="clr-namespace:WantApp"
              x:Class="WantApp.Views.Favorites"
-             BackgroundColor="{Binding CurrentTheme.BackgroundColor}">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="{Binding CurrentTheme.TextColor}"
-                   Text="Здесь будут размещены кнопки, добавленные пользователем в избранные. Так пользователь сможет экономить свое время на поиске часто используемых кнопок"
+            <Label Text="Здесь будут размещены кнопки, добавленные пользователем в избранные. Так пользователь сможет экономить свое время на поиске часто используемых кнопок"
                    FontSize="30"
-                   Style="{StaticResource TextStyle}"
+                   Style="{DynamicResource TextStyle}"
                    VerticalOptions="StartAndExpand" 
                    HorizontalTextAlignment="Center"
                    HorizontalOptions="CenterAndExpand" />
             <Button Text="Кнопки"
-                    Style="{StaticResource ButtonStyle}"
+                    Style="{DynamicResource ButtonStyle}"
                     VerticalOptions="StartAndExpand"/>
             <Button Text="Будут"
-                    Style="{StaticResource ButtonStyle}"
+                    Style="{DynamicResource ButtonStyle}"
                     VerticalOptions="StartAndExpand"/>
             <Button Text="Выглядеть"
-                    Style="{StaticResource ButtonStyle}"
+                    Style="{DynamicResource ButtonStyle}"
                     VerticalOptions="StartAndExpand"/>
             <Button Text="Так"
-                    Style="{StaticResource ButtonStyle}"
+                    Style="{DynamicResource ButtonStyle}"
                     VerticalOptions="StartAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
