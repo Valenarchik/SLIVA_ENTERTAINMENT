@@ -4,7 +4,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WantApp" xmlns:viewmodels="clr-namespace:WantApp"
              x:Class="WantApp.Views.Favorites"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             IconImageSource="favorites.png"
+             Rotation="180">
 
     <ContentPage.Content>
         <StackLayout>

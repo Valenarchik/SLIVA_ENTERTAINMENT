@@ -5,25 +5,24 @@
              xmlns:views="clr-namespace:WantApp.Views;assembly=WantApp"
              x:Class="WantApp.Views.AppShell"
              Style="{DynamicResource ShellStyle}">
-
     <TabBar>
-        <Tab Icon="themes.png">
+        <Tab >
             <ShellContent ContentTemplate="{DataTemplate views:ChangeTheme}"/>
         </Tab>
         
-        <Tab  Icon="favorites.png">
+        <Tab >
             <ShellContent ContentTemplate="{DataTemplate views:Favorites}"/>
         </Tab>
 
-        <Tab Icon="mapIcon.png">
+        <Tab >
             <ShellContent ContentTemplate="{DataTemplate views:Map}"/>
         </Tab>
 
-        <Tab Icon="menu.png">
+        <Tab >
             <ShellContent ContentTemplate="{DataTemplate views:Menu}"/>
         </Tab>
 
-        <Tab Icon="settings.png">
+        <Tab >
             <ShellContent ContentTemplate="{DataTemplate views:Settings}"/>
         </Tab>
 

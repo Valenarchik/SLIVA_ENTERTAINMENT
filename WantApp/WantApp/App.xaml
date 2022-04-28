@@ -27,10 +27,17 @@
                 <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
             </Style>
 
-            <Style x:Key ="ShellStyle"  TargetType ="Shell">
-                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
-                <Setter Property="TitleColor" Value="{DynamicResource SecondaryColor}"/>
-                <Setter Property="UnselectedColor" Value="{DynamicResource SecondaryColor}"/>
+            <!-- <Style x:Key ="ShellStyle"  TargetType ="Shell"> -->
+            <!--     <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" /> -->
+            <!--     <Setter Property="TitleColor" Value="{DynamicResource SecondaryColor}"/> -->
+            <!--     <Setter Property="UnselectedColor" Value="{DynamicResource SecondaryColor}"/> -->
+            <!-- </Style> -->
+            
+            <Style x:Key ="TabbedPageStyle"  TargetType ="TabbedPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+                <Setter Property="BarTextColor" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="SelectedTabColor" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="UnselectedTabColor" Value="{DynamicResource SecondaryColor}"/>
             </Style>
             
         </ResourceDictionary>
