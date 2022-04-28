@@ -3,12 +3,13 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:WantApp.Views;assembly=WantApp"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             x:Class="WantApp.Views.TabbedApp"
             Style="{DynamicResource TabbedPageStyle}"
-            Rotation="180">
-    <views:Settings />
-    <views:Menu />
-    <views:Map />
-    <views:Favorites />
+            android:TabbedPage.ToolbarPlacement="Bottom">
     <views:ChangeTheme />
+    <views:Favorites />
+    <views:Map />
+    <views:Menu />
+    <views:Settings />
 </TabbedPage>

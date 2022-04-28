@@ -10,6 +10,7 @@ namespace WantApp
     {
         public App()
         {
+            
             MainPage = new TabbedApp();
             InitializeComponent();
         }

@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WantApp.Views.Menu"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
-             IconImageSource="menu.png"
-             Rotation="180">
+             IconImageSource="menu.png">
     <ContentPage.Content>
         <StackLayout>
             <Label Style="{DynamicResource TextStyle}"

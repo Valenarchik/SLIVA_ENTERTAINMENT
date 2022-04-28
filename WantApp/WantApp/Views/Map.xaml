@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WantApp.Views.Map"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
-             IconImageSource="mapIcon.png"
-             Rotation="180">
+             IconImageSource="mapIcon.png">
     <ContentPage.Content>
         <StackLayout>
             <Image Source ="map.png" Margin="15"/>

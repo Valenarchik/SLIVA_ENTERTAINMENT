@@ -28,9 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\AppShell.xaml.cs">
-      <DependentUpon>AppShell.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
