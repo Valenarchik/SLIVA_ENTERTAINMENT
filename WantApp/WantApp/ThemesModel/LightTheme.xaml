@@ -4,9 +4,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     x:Class="WantApp.ThemesModel.LightTheme">
     
-    <Color x:Key="PageBackgroundColor">White</Color>
-    <Color x:Key="ShellColor">White</Color>
-    <Color x:Key="PrimaryColor">White</Color>
+    <Color x:Key="PageBackgroundColor">Azure</Color>
+    <Color x:Key="ShellColor">Azure</Color>
+    <Color x:Key="PrimaryColor">Azure</Color>
     <Color x:Key="SecondaryColor">Black</Color>
     <Color x:Key="PrimaryTextColor">Black</Color>
     <Color x:Key="SecondaryTextColor">Black</Color>
