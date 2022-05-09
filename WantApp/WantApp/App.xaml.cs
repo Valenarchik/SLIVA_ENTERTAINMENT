@@ -3,6 +3,7 @@ using WantApp.ThemesModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using WantApp.Views;
+using Xamarin.Forms.Maps;
 
 namespace WantApp
 {
@@ -10,7 +11,6 @@ namespace WantApp
     {
         public App()
         {
-            
             MainPage = new TabbedApp();
             InitializeComponent();
         }

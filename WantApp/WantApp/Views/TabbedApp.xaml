@@ -9,7 +9,7 @@
             android:TabbedPage.ToolbarPlacement="Bottom">
     <views:ChangeTheme />
     <views:Favorites />
-    <views:Map />
+    <views:MapPage />
     <views:Menu />
     <views:Settings />
 </TabbedPage>
