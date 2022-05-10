@@ -4,8 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WantApp.Annotations;
+using WantApp.ThemesModel;
 using WantApp.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 
 namespace WantApp.Views
@@ -15,6 +18,8 @@ namespace WantApp.Views
         public Favorites()
         {
             InitializeComponent();
+
+            BindingContext = new FavoritesViewModel();  
         }
     }
 }

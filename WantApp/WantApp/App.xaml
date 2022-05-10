@@ -34,6 +34,14 @@
                 <Setter Property="UnselectedTabColor" Value="{DynamicResource SecondaryColor}"/>
             </Style>
             
+            <Style x:Key="GridStyle" TargetType ="Grid">
+                <Setter Property="Background" Value="{DynamicResource SecondaryColor}"/>
+            </Style>
+            
+            <Style x:Key="ImageButtonStyle" TargetType ="ImageButton">
+                <Setter Property="Background" Value="{DynamicResource SecondaryColor}"/>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

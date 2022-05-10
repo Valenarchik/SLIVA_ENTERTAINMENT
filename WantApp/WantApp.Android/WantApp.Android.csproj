@@ -69,7 +69,12 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\add.png" />
+    <AndroidResource Include="Resources\drawable\burger_logo.png" />
     <AndroidResource Include="Resources\drawable\favorites.png" />
+    <AndroidResource Include="Resources\drawable\favorites_active.png" />
+    <AndroidResource Include="Resources\drawable\favorites_inactive.png" />
+    <AndroidResource Include="Resources\drawable\filtration.png" />
     <AndroidResource Include="Resources\drawable\Map.png" />
     <AndroidResource Include="Resources\drawable\mapIcon.png" />
     <AndroidResource Include="Resources\drawable\menu.png" />
