@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using WantApp.ThemesModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +12,7 @@ namespace WantApp
     {
         public App()
         {
+            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
             MainPage = new TabbedApp();
             InitializeComponent();
         }

@@ -10,5 +10,6 @@
     <Color x:Key="SecondaryColor">Black</Color>
     <Color x:Key="PrimaryTextColor">Black</Color>
     <Color x:Key="SecondaryTextColor">Black</Color>
+    <ImageSource x:Key="AddButton">add.png</ImageSource>
     
 </ResourceDictionary>

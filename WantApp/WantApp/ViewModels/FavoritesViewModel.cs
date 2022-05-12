@@ -6,14 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MvvmHelpers;
 using WantApp.ViewModels;
 using Xamarin.Forms;
+
 namespace WantApp.ViewModels
 {
-
-    public class FavoritesViewModel
+    public class FavoritesViewModel : BaseViewModel
     {
-        public ObservableCollection<FavoritesElement> FavoritesElements { get; set; } = new ObservableCollection<FavoritesElement>();
+        public ObservableCollection<FavoritesElement> FavoritesElements { get; set; } =
+            new ObservableCollection<FavoritesElement>();
 
         public ICommand ElementAddCommand { get; set; }
 
@@ -25,6 +27,7 @@ namespace WantApp.ViewModels
         public void ElementAdd()
         {
             FavoritesElements.Add(new FavoritesElement());
+            OnPropertyChanged(nameof(FavoritesElements));
         }
     }
 }

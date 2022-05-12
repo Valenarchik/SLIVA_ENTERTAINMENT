@@ -8,14 +8,12 @@
              IconImageSource="favorites.png">
     <ContentPage.Content>
     <StackLayout>
-        <ImageButton Source="add.png"
-                     Style="{DynamicResource ImageButtonStyle}"
+        <ImageButton Source="{DynamicResource AddButton}"
+                     Style="{DynamicResource AddImageButtonStyle}"
                      HorizontalOptions="End"
                      VerticalOptions="End"
                      HeightRequest="41"
                      WidthRequest="41"
-                     Margin="15"
-                     CornerRadius="15"
                      Command="{Binding ElementAddCommand}" />
         <ListView ItemsSource="{Binding FavoritesElements}" HasUnevenRows="True" SeparatorVisibility="None">
             <ListView.ItemTemplate>
@@ -32,13 +30,11 @@
                                   RowSpacing="0"
                                   ColumnSpacing="0">
                                 <ImageButton Grid.RowSpan="2" Grid.ColumnSpan="2"
-                                             Style="{DynamicResource ImageButtonStyle}" />
+                                             Style="{DynamicResource ImageButtonStyle}"/>
                                 <ImageButton Grid.Row="0" Grid.Column="2"
-                                             Padding="10"
                                              Style="{DynamicResource ImageButtonStyle}"
                                              Source="favorites_inactive.png" />
                                 <ImageButton Grid.Row="1" Grid.Column="2"
-                                             Padding="10"
                                              Style="{DynamicResource ImageButtonStyle}"
                                              Source="filtration.png" />
                             </Grid>

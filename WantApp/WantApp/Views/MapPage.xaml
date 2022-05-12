@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
@@ -6,8 +7,34 @@
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              IconImageSource="mapIcon.png">
     <ContentPage.Content>
-        <StackLayout>
-            <maps:Map x:Name="Map" IsShowingUser="True"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <maps:Map x:Name="Map" IsShowingUser="True" Grid.Row="0" Grid.RowSpan="2" />
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button HeightRequest="50"
+                        WidthRequest="50"
+                        CornerRadius="100"
+                        BackgroundColor="Gray"
+                        Margin="20"
+                        HorizontalOptions="Center"
+                        Command="{Binding GetRouteCommand}" />
+                <Entry Grid.Row="1" Placeholder="Enter End"
+                       Text="{Binding End}" 
+                       BackgroundColor="Coral"
+                       TextColor="Brown"/>
+                <Label Grid.Row="2" Text="{Binding RouteDuration, StringFormat='Estimated Duration Time: {0}'}" 
+                       BackgroundColor="Coral"
+                       TextColor="Brown"
+                       HorizontalOptions="Center"/>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

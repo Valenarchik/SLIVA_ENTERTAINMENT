@@ -2,11 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.wantapp">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
     <application android:label="WantApp.Android" android:theme="@style/MainTheme">
-        <meta-data android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyAs3IU4LTX6G6oUWhyuOuPvw2hQHadeL7c"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD-zynz-ts0Mau854ro5Dj1NhCyK2O_-Dk"/>
+        <!--<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />-->
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
     </application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.location.network" android:required="false" />
 </manifest>
