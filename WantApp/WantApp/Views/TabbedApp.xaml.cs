@@ -15,6 +15,12 @@ namespace WantApp.Views
         public TabbedApp()
         {
             InitializeComponent();
+            CreateDefault(new MapPage());
+        }
+
+        protected sealed override Page CreateDefault(object item)
+        {
+            return base.CreateDefault(item);
         }
     }
 }

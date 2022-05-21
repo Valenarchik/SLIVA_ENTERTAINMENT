@@ -21,5 +21,11 @@ namespace WantApp.Views
 
             BindingContext = new FavoritesViewModel();  
         }
+
+        private void Button_OnClicked(object sender, EventArgs e)
+        {
+            var tabbed = this.Parent as TabbedApp;
+            if (tabbed != null) tabbed.CurrentPage = tabbed.Children[2];
+        }
     }
 }

@@ -15,6 +15,7 @@
                      HeightRequest="41"
                      WidthRequest="41"
                      Command="{Binding ElementAddCommand}" />
+        <Button Clicked="Button_OnClicked" />
         <ListView ItemsSource="{Binding FavoritesElements}" HasUnevenRows="True" SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
