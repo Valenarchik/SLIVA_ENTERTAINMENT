@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿using Newtonsoft.Json;
 
 namespace WantApp.Models
 {
-    public class LatLong
-    {
-        public double Lat { get; set; }
-        public double Lng { get; set; }
-    }
-
-
     public partial class DirectionResponse
     {
         [JsonProperty("code")] public string Code { get; set; }

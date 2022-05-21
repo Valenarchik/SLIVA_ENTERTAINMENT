@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Globalization;
+using WantApp.Services;
 using WantApp.ThemesModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using WantApp.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms.Maps;
 
 namespace WantApp

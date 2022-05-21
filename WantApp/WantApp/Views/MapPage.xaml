@@ -21,19 +21,18 @@
                 </Grid.RowDefinitions>
                 <Button HeightRequest="50"
                         WidthRequest="50"
-                        CornerRadius="100"
                         BackgroundColor="Gray"
                         Margin="20"
                         HorizontalOptions="Center"
                         Command="{Binding GetRouteCommand}" />
                 <Entry Grid.Row="1" Placeholder="Enter End"
-                       Text="{Binding End}" 
+                       Text="{Binding Request}" 
                        BackgroundColor="Coral"
                        TextColor="Brown"/>
-                <Label Grid.Row="2" Text="{Binding RouteDuration, StringFormat='Estimated Duration Time: {0}'}" 
-                       BackgroundColor="Coral"
-                       TextColor="Brown"
-                       HorizontalOptions="Center"/>
+                <!-- <Label Grid.Row="2" Text="{Binding RouteDuration, StringFormat='Estimated Duration Time: {0}'}"  -->
+                <!--        BackgroundColor="Coral" -->
+                <!--        TextColor="Brown" -->
+                <!--        HorizontalOptions="Center"/> -->
             </Grid>
         </Grid>
     </ContentPage.Content>
