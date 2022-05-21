@@ -10,7 +10,7 @@ namespace WantApp.Services
 {
     public class OSRMRouteService
     {
-        private readonly string baseRouteUrl = "http://router.project-osrm.org/route/v1/foot/";
+        private readonly string baseRouteUrl = "https://router.project-osrm.org/route/v1/driving/";
         private HttpClient httpClient;
 
         public OSRMRouteService()
@@ -18,18 +18,17 @@ namespace WantApp.Services
             httpClient = new HttpClient();
         }
 
-        public async Task<DirectionResponse> GetDirectionResponseAsync(Location startLocation, string end)
+        public async Task<DirectionResponse> GetDirectionResponseAsync(Location startLocation, double[] endLocation)
         {
-
-            var endLocations = await Geocoding.GetLocationsAsync(end);
-            var endLocation = endLocations?.FirstOrDefault();
-
+            /*var endLocations = await Geocoding.GetLocationsAsync(end);
+            var endLocation = endLocations.FirstOrDefault();*/
+            
             if (startLocation == null || endLocation == null) return null;
 
             if (startLocation != null && endLocation != null)
             {
                 var url =  string.Format(baseRouteUrl) + $"{startLocation.Longitude},{startLocation.Latitude};" +
-                             $"{endLocation.Longitude},{endLocation.Latitude}?overview=full&geometries=polyline&steps=false";
+                             $"{endLocation[0]},{endLocation[1]}?overview=full&geometries=polyline&steps=false";
                 var response = await httpClient.GetAsync(url);
                 if (response.IsSuccessStatusCode)
                 {
@@ -37,10 +36,6 @@ namespace WantApp.Services
                     var result = JsonConvert.DeserializeObject<DirectionResponse>(jason);
                     return result;
                 }
-            }
-            else
-            {
-                return null;
             }
             return null;
         }

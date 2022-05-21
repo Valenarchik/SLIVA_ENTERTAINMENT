@@ -76,17 +76,22 @@ namespace WantApp.ViewModels
 
         public static Map map;
         public Command GetRouteCommand { get; }
-        private OSRMRouteService service;
-        private DirectionResponse dr;
+        private OSRMRouteService routeService;
+        private CategorySearchService searchService;
+        private DirectionResponse direction;
+        private CategorySearchResponse categorySearch;
 
         public RouteViewModel()
         {
             ShowRouteDetails = false;
             map = new Map();
-            service = new OSRMRouteService();
-            dr = new DirectionResponse();
+            routeService = new OSRMRouteService();
+            searchService = new CategorySearchService();
+            direction = new DirectionResponse();
+            categorySearch = new CategorySearchResponse();
             SetCurrentLocation();
-            GetRouteCommand = new Command(async () => await loadRouteAsync(End));
+            
+            GetRouteCommand = new Command(async () => await LoadRouteAsync(End));
         }
 
         private async void SetCurrentLocation()
@@ -95,7 +100,7 @@ namespace WantApp.ViewModels
             Start = await Geolocation.GetLocationAsync(request);
         }
 
-        public async Task loadRouteAsync(string end)
+        public async Task LoadRouteAsync(string end)
         {
             var current = Xamarin.Essentials.Connectivity.NetworkAccess;
 
@@ -113,13 +118,18 @@ namespace WantApp.ViewModels
 
             var routes = new List<Route>();
             var locations = new List<LatLong>();
+            var search = new List<Feature>();
 
-            dr = await service.GetDirectionResponseAsync(start, end);
-            if (dr != null)
+            categorySearch = await searchService.GetSearchResponseAsync(start, end);
+            search = categorySearch.Features.ToList();
+            var searchResult = search.Select(x => x.Geometry.Coordinates).FirstOrDefault();
+
+            direction = await routeService.GetDirectionResponseAsync(start, searchResult);
+            if (direction != null)
             {
                 ShowRouteDetails = false;
                 await Task.Delay(1000);
-                routes = dr.Routes.ToList();
+                routes = direction.Routes.ToList();
 
                 RouteDuration = Math.Round(routes[0].Duration / 60, 0);
                 RouteDistance = Math.Round(routes[0].Distance / 1609, 1);
@@ -168,7 +178,7 @@ namespace WantApp.ViewModels
         {
             if (encodedPoints == null || encodedPoints == "") return null;
             List<LatLong> poly = new List<LatLong>();
-            char[] polylinechars = encodedPoints.ToCharArray();
+            char[] polylineChars = encodedPoints.ToCharArray();
             int index = 0;
 
             int currentLat = 0;
@@ -179,19 +189,19 @@ namespace WantApp.ViewModels
 
             try
             {
-                while (index < polylinechars.Length)
+                while (index < polylineChars.Length)
                 {
                     // calculate next latitude
                     sum = 0;
                     shifter = 0;
                     do
                     {
-                        next5bits = (int) polylinechars[index++] - 63;
+                        next5bits = (int) polylineChars[index++] - 63;
                         sum |= (next5bits & 31) << shifter;
                         shifter += 5;
-                    } while (next5bits >= 32 && index < polylinechars.Length);
+                    } while (next5bits >= 32 && index < polylineChars.Length);
 
-                    if (index >= polylinechars.Length)
+                    if (index >= polylineChars.Length)
                         break;
 
                     currentLat += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
@@ -201,12 +211,12 @@ namespace WantApp.ViewModels
                     shifter = 0;
                     do
                     {
-                        next5bits = (int) polylinechars[index++] - 63;
+                        next5bits = (int) polylineChars[index++] - 63;
                         sum |= (next5bits & 31) << shifter;
                         shifter += 5;
-                    } while (next5bits >= 32 && index < polylinechars.Length);
+                    } while (next5bits >= 32 && index < polylineChars.Length);
 
-                    if (index >= polylinechars.Length && next5bits >= 32)
+                    if (index >= polylineChars.Length && next5bits >= 32)
                         break;
 
                     currentLng += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
