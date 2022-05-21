@@ -18,7 +18,7 @@ namespace WantApp.Views
         public MapPage()
         {
             InitializeComponent();
-            BindingContext = new RouteViewModel();
+            BindingContext = Intenface.routeViewModel;
             RouteViewModel.Map = Map;
             DisplayCurLoc();
         }

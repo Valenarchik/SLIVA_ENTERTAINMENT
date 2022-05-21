@@ -15,6 +15,8 @@ namespace WantApp.ViewModels
     public class RouteViewModel : DisplayAlertViewModel
     {
         public static Map Map = new Map();
+        
+
         private Position start;
 
         public Position Start
@@ -64,9 +66,9 @@ namespace WantApp.ViewModels
         }
 
         public Command GetRouteCommand { get; }
-        private MapBoxRouteService osmrRouteService = new MapBoxRouteService();
+        public MapBoxRouteService MapBoxRouteService = new MapBoxRouteService();
 
-        private YandexSearchOrganizationsService yandexSearchOrganizationsService =
+        public YandexSearchOrganizationsService yandexSearchOrganizationsService =
             new YandexSearchOrganizationsService();
         
 
@@ -113,7 +115,7 @@ namespace WantApp.ViewModels
             Map.MapElements.Clear();
             Map.Pins.Clear();
 
-            var direction = await osmrRouteService.GetDirectionResponseAsync(startPosition, endPosition);
+            var direction = await MapBoxRouteService.GetDirectionResponseAsync(startPosition, endPosition);
             if (direction == null)
             {
                 await DisplayAlert("Ошибка:", "Не удалось найти маршрут.", "ОК");

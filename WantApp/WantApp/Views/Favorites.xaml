@@ -7,42 +7,44 @@
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              IconImageSource="favorites.png">
     <ContentPage.Content>
-    <StackLayout>
-        <ImageButton Source="{DynamicResource AddButton}"
-                     Style="{DynamicResource AddImageButtonStyle}"
-                     HorizontalOptions="End"
-                     VerticalOptions="End"
-                     HeightRequest="41"
-                     WidthRequest="41"
-                     Command="{Binding ElementAddCommand}" />
-        <ListView ItemsSource="{Binding FavoritesElements}" HasUnevenRows="True" SeparatorVisibility="None">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Frame Margin="10"
-                               Padding="0"
-                               VerticalOptions="Start"
-                               HorizontalOptions="Center"
-                               CornerRadius="15">
-                            <Grid Style="{DynamicResource GridStyle}"
-                                  RowDefinitions="48, 48"
-                                  ColumnDefinitions="6*, 56"
-                                  RowSpacing="0"
-                                  ColumnSpacing="0">
-                                <ImageButton Grid.RowSpan="2" Grid.ColumnSpan="2"
-                                             Style="{DynamicResource ImageButtonStyle}"/>
-                                <ImageButton Grid.Row="0" Grid.Column="2"
-                                             Style="{DynamicResource ImageButtonStyle}"
-                                             Source="favorites_inactive.png" />
-                                <ImageButton Grid.Row="1" Grid.Column="2"
-                                             Style="{DynamicResource ImageButtonStyle}"
-                                             Source="filtration.png" />
-                            </Grid>
-                        </Frame>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+        <StackLayout>
+            <ImageButton Source="{DynamicResource AddButton}"
+                         Style="{DynamicResource AddImageButtonStyle}"
+                         HorizontalOptions="End"
+                         VerticalOptions="End"
+                         HeightRequest="41"
+                         WidthRequest="41"
+                         Command="{Binding ElementAddCommand}" />
+            <ListView ItemsSource="{Binding FavoritesElements}" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="10"
+                                   Padding="0"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="Center"
+                                   CornerRadius="15">
+                                <Grid Style="{DynamicResource GridStyle}"
+                                      RowDefinitions="48, 48"
+                                      ColumnDefinitions="6*, 56"
+                                      RowSpacing="0"
+                                      ColumnSpacing="0">
+                                    <Button Grid.RowSpan="2" Grid.ColumnSpan="2"
+                                            Style="{DynamicResource ButtonStyle}"
+                                            Clicked="Button_OnClicked"
+                                            Text="Кафе"/>
+                                    <ImageButton Grid.Row="0" Grid.Column="2"
+                                                 Style="{DynamicResource ImageButtonStyle}"
+                                                 Source="favorites_inactive.png" />
+                                    <ImageButton Grid.Row="1" Grid.Column="2"
+                                                 Style="{DynamicResource ImageButtonStyle}"
+                                                 Source="filtration.png"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
