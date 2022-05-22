@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security;
 using WantApp.Services;
 using WantApp.ViewModels;
 using Xamarin.Forms;
@@ -28,6 +29,7 @@ namespace WantApp.Views
                 await routeViewModel
                     .LoadRouteAsync(routeViewModel.Start,favoritesElement.Response[favoritesElement.CurrentResponse]);
                 favoritesElement.CurrentResponse++;
+                if (Parent is TabbedApp ss) ss.CurrentPage = ss.Children[2];
                 return;
             }
             favoritesElement.Request = button.Text;
@@ -40,7 +42,7 @@ namespace WantApp.Views
             await routeViewModel
                 .LoadRouteAsync(routeViewModel.Start,favoritesElement.Response[favoritesElement.CurrentResponse]);
             favoritesElement.CurrentResponse++;
-            var 
+            if (Parent is TabbedApp parentPage) parentPage.CurrentPage = parentPage.Children[2];
         }
     }
 }
