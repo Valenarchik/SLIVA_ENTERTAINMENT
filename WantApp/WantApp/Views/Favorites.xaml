@@ -8,14 +8,36 @@
              IconImageSource="favorites.png">
     <ContentPage.Content>
         <StackLayout>
-            <ImageButton Source="{DynamicResource AddButton}"
-                         Style="{DynamicResource AddImageButtonStyle}"
-                         HorizontalOptions="End"
-                         VerticalOptions="End"
-                         HeightRequest="41"
-                         WidthRequest="41"
-                         Command="{Binding ElementAddCommand}" />
-            <ListView ItemsSource="{Binding FavoritesElements}" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="None">
+            <!-- Верхние кнопки -->
+            <Grid 
+                RowDefinitions="Auto"
+                ColumnDefinitions="*, 50">
+                <Grid 
+                    Grid.Column="0"
+                    ColumnDefinitions="*, *"
+                    ColumnSpacing="0"
+                    RowSpacing="0">
+                    <Button Grid.Column = "0"
+                            Text="Избранное"
+                            Command="{Binding FavoriteButtonCommand}"/>
+                    <Button Grid.Column = "1"
+                            Text="Добавленное"
+                            Command="{Binding AddedButtonCommand}"
+                            CommandParameter="{x:Reference  }"/>
+                </Grid>
+                <ImageButton Grid.Column = "1"
+                        Source="{DynamicResource AddButton}"
+                        Command="{Binding ElementAddCommand}"
+                        HeightRequest="41"
+                        WidthRequest="41"/>
+            </Grid>
+            
+            <!--Лист Избранного-->
+            <ListView 
+                ItemsSource="{Binding FavoritesElements}"
+                HasUnevenRows="True" 
+                SeparatorVisibility="None"
+                SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -31,20 +53,58 @@
                                       ColumnSpacing="0">
                                     <Button Grid.RowSpan="2" Grid.ColumnSpan="2"
                                             Style="{DynamicResource ButtonStyle}"
+                                            Text = "Введите запрос"
                                             Clicked="Button_OnClicked"
-                                            Text="Кафе"/>
+                                            Command="{Binding FindOrganizationCommand, }"/>
                                     <ImageButton Grid.Row="0" Grid.Column="2"
                                                  Style="{DynamicResource ImageButtonStyle}"
                                                  Source="favorites_inactive.png" />
                                     <ImageButton Grid.Row="1" Grid.Column="2"
                                                  Style="{DynamicResource ImageButtonStyle}"
-                                                 Source="filtration.png"/>
+                                                 Source="filtration.png"
+                                                 Clicked="FindButton_OnClicked"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
+            <!-- Лист Добавленного -->
+            <!-- <ListView  -->
+            <!--     ItemsSource="{Binding AddedElements}" -->
+            <!--     HasUnevenRows="True"  -->
+            <!--     SeparatorVisibility="None" -->
+            <!--     SelectionMode="None"> -->
+            <!--     <ListView.ItemTemplate> -->
+            <!--         <DataTemplate> -->
+            <!--             <ViewCell> -->
+            <!--                 <Frame Margin="10" -->
+            <!--                        Padding="0" -->
+            <!--                        VerticalOptions="Start" -->
+            <!--                        HorizontalOptions="Center" -->
+            <!--                        CornerRadius="15"> -->
+            <!--                     <Grid Style="{DynamicResource GridStyle}" -->
+            <!--                           RowDefinitions="48, 48" -->
+            <!--                           ColumnDefinitions="6*, 56" -->
+            <!--                           RowSpacing="0" -->
+            <!--                           ColumnSpacing="0"> -->
+            <!--                         <Button Grid.RowSpan="2" Grid.ColumnSpan="2" -->
+            <!--                                 Style="{DynamicResource ButtonStyle}" -->
+            <!--                                 Clicked="FindButton_OnClicked" -->
+            <!--                                 Text="Кафе"/> -->
+            <!--                         <ImageButton Grid.Row="0" Grid.Column="2" -->
+            <!--                                      Style="{DynamicResource ImageButtonStyle}" -->
+            <!--                                      Source="favorites_inactive.png" /> -->
+            <!--                         <ImageButton Grid.Row="1" Grid.Column="2" -->
+            <!--                                      Style="{DynamicResource ImageButtonStyle}" -->
+            <!--                                      Source="filtration.png"/> -->
+            <!--                     </Grid> -->
+            <!--                 </Frame> -->
+            <!--             </ViewCell> -->
+            <!--         </DataTemplate> -->
+            <!--     </ListView.ItemTemplate> -->
+            <!-- </ListView> -->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

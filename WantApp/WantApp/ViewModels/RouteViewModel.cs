@@ -15,10 +15,7 @@ namespace WantApp.ViewModels
     public class RouteViewModel : DisplayAlertViewModel
     {
         public static Map Map = new Map();
-        
-
         private Position start;
-
         public Position Start
         {
             get => start;
@@ -28,9 +25,7 @@ namespace WantApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
         private string request;
-
         public string Request
         {
             get => request;
@@ -40,9 +35,7 @@ namespace WantApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
         private double routeDistance;
-
         public double RouteDistance
         {
             get => routeDistance;
@@ -52,9 +45,7 @@ namespace WantApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
         private double routeDuration;
-
         public double RouteDuration
         {
             get => routeDuration;
@@ -64,27 +55,17 @@ namespace WantApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public Command GetRouteCommand { get; }
-        public MapBoxRouteService MapBoxRouteService = new MapBoxRouteService();
-
-        public YandexSearchOrganizationsService yandexSearchOrganizationsService =
-            new YandexSearchOrganizationsService();
-        
-
         public RouteViewModel()
         {
             SetCurrentLocation();
             GetRouteCommand = new Command(async () => await ExecuteRequestAsync());
-        }
-
+        } 
         private async void SetCurrentLocation()
         {
             var loc = await Geolocation.GetLocationAsync(new GeolocationRequest(GeolocationAccuracy.Medium));
             Start = new Position(loc.Latitude, loc.Longitude);
         }
-
-
         public async Task ExecuteRequestAsync()
         {
             if (request is null)
@@ -93,7 +74,7 @@ namespace WantApp.ViewModels
                 return;
             }
 
-            var answer = await yandexSearchOrganizationsService.GetResponseAsync(request,start,new Size(0.5,0.5));
+            var answer = await YandexSearchOrganizationsService.GetResponseAsync(request,start,new Size(0.5,0.5));
             if (answer is null)
             {
                 await DisplayAlert("Ошибка:", "Не удалось обработать запрос.", "ОК");
@@ -124,8 +105,8 @@ namespace WantApp.ViewModels
 
             var route = direction.Routes.First();
             RouteDuration = Math.Round(route.Duration/60, 0);
-            RouteDistance = Math.Round(route.Distance/1000, 1);
-            var locations = Decode(route.Geometry);
+            RouteDistance = Math.Round(route.Distance, 1);
+            var locations = Model.Decode(route.Geometry);
             var startPin = new Pin
             {
                 Label = "You",
@@ -142,7 +123,7 @@ namespace WantApp.ViewModels
             };
             Map.Pins.Add(endPin);
 
-            var dist = Direction.GetDistance(startPosition, endPosition);
+            var dist = Model.GetDistance(startPosition, endPosition);
             var mapSpan = MapSpan.FromCenterAndRadius(
                 startPosition,
                 Distance.FromKilometers(dist));
@@ -150,7 +131,7 @@ namespace WantApp.ViewModels
 
             var polyline = new Polyline()
             {
-                StrokeWidth = 4,
+                StrokeWidth = 8,
                 StrokeColor = Color.FromHex("#1BA1E2")
             };
             polyline.Geopath.Add(startPosition);
@@ -158,56 +139,6 @@ namespace WantApp.ViewModels
                 polyline.Geopath.Add(location);
             polyline.Geopath.Add(endPosition);
             Map.MapElements.Add(polyline);
-        }
-
-        public static IEnumerable<Position> Decode(string encodedPoints)
-        {
-            if (string.IsNullOrEmpty(encodedPoints))
-                throw new ArgumentNullException("encodedPoints");
-
-            char[] polylineChars = encodedPoints.ToCharArray();
-            int index = 0;
-
-            int currentLat = 0;
-            int currentLng = 0;
-            int next5bits;
-            int sum;
-            int shifter;
-
-            while (index < polylineChars.Length)
-            {
-                // calculate next latitude
-                sum = 0;
-                shifter = 0;
-                do
-                {
-                    next5bits = (int)polylineChars[index++] - 63;
-                    sum |= (next5bits & 31) << shifter;
-                    shifter += 5;
-                } while (next5bits >= 32 && index < polylineChars.Length);
-
-                if (index >= polylineChars.Length)
-                    break;
-
-                currentLat += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
-
-                //calculate next longitude
-                sum = 0;
-                shifter = 0;
-                do
-                {
-                    next5bits = (int)polylineChars[index++] - 63;
-                    sum |= (next5bits & 31) << shifter;
-                    shifter += 5;
-                } while (next5bits >= 32 && index < polylineChars.Length);
-
-                if (index >= polylineChars.Length && next5bits >= 32)
-                    break;
-
-                currentLng += (sum & 1) == 1 ? ~(sum >> 1) : (sum >> 1);
-
-                yield return new Position(Convert.ToDouble(currentLat) / 1E5, Convert.ToDouble(currentLng) / 1E5);
-            }
         }
     }
 }

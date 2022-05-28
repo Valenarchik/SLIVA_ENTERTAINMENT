@@ -9,12 +9,12 @@ using Xamarin.Forms.Maps;
 
 namespace WantApp.Services
 {
-    public class YandexSearchOrganizationsService
+    public static class YandexSearchOrganizationsService
     {
-        private readonly string ApiKey = "ee063c4d-5157-40c4-88b7-32adf25f578a";
-        private readonly HttpClient httpClient = new HttpClient();
+        private static readonly string ApiKey = "ee063c4d-5157-40c4-88b7-32adf25f578a";
+        private static readonly HttpClient httpClient = new HttpClient();
         
-        public async Task<YandexResponse> GetResponseAsync(string request,Position centre,Size areaSize)
+        public static async Task<YandexResponse> GetResponseAsync(string request,Position centre,Size areaSize)
         {
             if (request == null) return null;
             var url = $"https://search-maps.yandex.ru/v1/" +

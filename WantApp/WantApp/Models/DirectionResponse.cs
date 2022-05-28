@@ -4,14 +4,7 @@ using Xamarin.Forms.Maps;
 
 namespace WantApp.Models
 {
-    public static class Direction
-    {
-        public static double GetDistance(Position p1, Position p2)
-        {
-            return Math.Sqrt((p1.Longitude - p2.Longitude) * (p1.Longitude - p2.Longitude)
-                             + (p1.Latitude - p2.Latitude) * (p1.Latitude - p2.Latitude))*111;
-        }
-    }
+
     public partial class DirectionResponse
     {
         [JsonProperty("routes")]

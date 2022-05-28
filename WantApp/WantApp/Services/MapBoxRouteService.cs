@@ -9,21 +9,16 @@ using Xamarin.Forms.Maps;
 
 namespace WantApp.Services
 {
-    public class MapBoxRouteService
+    public static class MapBoxRouteService
     {
-        private readonly string baseRouteUrl = "https://api.mapbox.com/directions/v5/mapbox/walking/";
+        private static readonly string baseRouteUrl = "https://api.mapbox.com/directions/v5/mapbox/walking/";
 
-        private readonly string apiKey =
+        private static readonly string apiKey =
             "pk.eyJ1IjoidmFsZW5hcmNoaWsiLCJhIjoiY2wzZnhoMmwzMDNhZDNqcXU5d2Qwbm5zeCJ9.vpbpthWNYb9BYcxv_DVarw";
             
-        private HttpClient httpClient;
+        private static readonly HttpClient httpClient = new HttpClient();
 
-        public MapBoxRouteService()
-        {
-            httpClient = new HttpClient();
-        }
-
-        public async Task<DirectionResponse> GetDirectionResponseAsync(Position startLocation, Position endLocation)
+        public static async Task<DirectionResponse> GetDirectionResponseAsync(Position startLocation, Position endLocation)
         {
             var url = baseRouteUrl +
                       $"{startLocation.Longitude},{startLocation.Latitude};" +
@@ -38,7 +33,6 @@ namespace WantApp.Services
                 var result = JsonConvert.DeserializeObject<DirectionResponse>(jason);
                 return result;
             }
-
             return null;
         }
     }

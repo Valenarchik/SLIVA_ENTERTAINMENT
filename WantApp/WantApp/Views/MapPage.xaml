@@ -7,32 +7,22 @@
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              IconImageSource="mapIcon.png">
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <Grid RowDefinitions = "*, Auto">
             <maps:Map x:Name="Map" IsShowingUser="True" Grid.Row="0" Grid.RowSpan="2" />
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Button HeightRequest="50"
-                        WidthRequest="50"
-                        BackgroundColor="Gray"
-                        Margin="20"
-                        HorizontalOptions="Center"
-                        Command="{Binding GetRouteCommand}" />
-                <Entry Grid.Row="1" Placeholder="Enter End"
-                       Text="{Binding Request}" 
+            <Grid Grid.Row="1"
+                  HorizontalOptions="Center"
+                  RowDefinitions = "Auto"
+                  ColumnDefinitions="Auto,Auto">
+                <Label Grid.Row="0" Grid.Column="0" 
+                       Text="{Binding RouteDuration, StringFormat='Время: {0} мин'}"
                        BackgroundColor="Coral"
-                       TextColor="Brown"/>
-                <!-- <Label Grid.Row="2" Text="{Binding RouteDuration, StringFormat='Estimated Duration Time: {0}'}"  -->
-                <!--        BackgroundColor="Coral" -->
-                <!--        TextColor="Brown" -->
-                <!--        HorizontalOptions="Center"/> -->
+                       TextColor="Brown"
+                       HorizontalOptions="Center"/>
+                <Label Grid.Row="0" Grid.Column="1" 
+                       Text="{Binding RouteDistance, StringFormat='Расстояние: {0} м'}"
+                       BackgroundColor="Coral"
+                       TextColor="Brown"
+                       HorizontalOptions="Center"/>
             </Grid>
         </Grid>
     </ContentPage.Content>
