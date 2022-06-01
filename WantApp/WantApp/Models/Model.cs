@@ -15,7 +15,7 @@ namespace WantApp.Models
         public static IEnumerable<Position> Decode(string encodedPoints)
         {
             if (string.IsNullOrEmpty(encodedPoints))
-                throw new ArgumentNullException("encodedPoints");
+                throw new ArgumentNullException(nameof(encodedPoints));
 
             var polylineChars = encodedPoints.ToCharArray();
             var index = 0;

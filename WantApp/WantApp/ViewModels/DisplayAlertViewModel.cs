@@ -15,5 +15,9 @@ namespace WantApp.ViewModels
         {
             await Application.Current.MainPage.DisplayAlert(title, massage, accept, cancle);
         }
+        public async Task<string> DisplayPromptAsync(string title, string massage)
+        {
+            return await Application.Current.MainPage.DisplayPromptAsync(title, massage);
+        }
     }
 }

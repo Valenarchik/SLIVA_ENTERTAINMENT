@@ -55,35 +55,14 @@ namespace WantApp.ViewModels
                 OnPropertyChanged();
             }
         }
-        public Command GetRouteCommand { get; }
         public RouteViewModel()
         {
             SetCurrentLocation();
-            GetRouteCommand = new Command(async () => await ExecuteRequestAsync());
         } 
         private async void SetCurrentLocation()
         {
             var loc = await Geolocation.GetLocationAsync(new GeolocationRequest(GeolocationAccuracy.Medium));
             Start = new Position(loc.Latitude, loc.Longitude);
-        }
-        public async Task ExecuteRequestAsync()
-        {
-            if (request is null)
-            {
-                await DisplayAlert("Ошибка:", "Укажите место назначения.", "ОК");
-                return;
-            }
-
-            var answer = await YandexSearchOrganizationsService.GetResponseAsync(request,start,new Size(0.5,0.5));
-            if (answer is null)
-            {
-                await DisplayAlert("Ошибка:", "Не удалось обработать запрос.", "ОК");
-                return;
-            }
-
-            var end = answer.Features.First().Geometry.Coordinates;
-            var endPosition = new Position(end[1], end[0]);
-            await LoadRouteAsync(start, endPosition);
         }
 
         public async Task LoadRouteAsync(Position startPosition, Position endPosition)

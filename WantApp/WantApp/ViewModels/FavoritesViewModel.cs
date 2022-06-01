@@ -1,38 +1,90 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
-using MvvmHelpers;
-using MvvmHelpers.Commands;
+using WantApp.Models;
+using WantApp.Services;
+using WantApp.Views;
+using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace WantApp.ViewModels
 {
-    public class FavoritesViewModel: BaseViewModel
+    public class FavoritesViewModel: DisplayAlertViewModel
     {
-        public ObservableCollection<FavoritesElement> FavoritesElements { get; set; } =
-            new ObservableCollection<FavoritesElement>();
-        public ObservableCollection<FavoritesElement> AddedElements { get; set; } =
-            new ObservableCollection<FavoritesElement>();
-        
-        public ICommand FavoriteButtonCommand { get; set; }
-        public ICommand AddedButtonCommand { get; set; }
-        public ICommand FindOrganizationCommand { get; set; }
-        public ICommand ElementAddCommand { get; set; }
-        
+        private bool favoritesElementsIsVisible = false;
 
+        public bool FavoritesElementsIsVisible
+        {
+            get => favoritesElementsIsVisible;
+            set
+            {
+                favoritesElementsIsVisible = value;
+                OnPropertyChanged(nameof(FavoritesElementsIsVisible));
+            } 
+        }
+
+        public ObservableCollection<FavoriteElementViewModel> FavoritesElements { get; set; } =
+            new ObservableCollection<FavoriteElementViewModel>();
+        
+        private bool addedElementsIsVisible = true;
+        public bool AddedElementsIsVisible
+        {
+            get => addedElementsIsVisible;
+            set
+            {
+                addedElementsIsVisible = value;
+                OnPropertyChanged(nameof(AddedElementsIsVisible));
+            } 
+        }
+        public ObservableCollection<FavoriteElementViewModel> AddedElements { get; set; } =
+            new ObservableCollection<FavoriteElementViewModel>();
+
+        public ICommand FavoritesButtonClickCommand { get; set; }
+        public ICommand AddedButtonClickCommand { get; set; }
+        public ICommand AddFavoritesCommand { get; set; }
+        public ICommand RemoveFavoritesCommand { get; set; }
+        public ICommand ElementAddCommand { get; private set; }
+        
         public FavoritesViewModel()
         {
             ElementAddCommand = new Command(ElementAdd);
-            FindOrganizationCommand = new Command(FindOrganization);
+            RemoveFavoritesCommand = new Command(RemoveFavorites);
+            AddFavoritesCommand = new Command(AddFavorites);
+            FavoritesButtonClickCommand = new Command(AddedButtonClick);
+            AddedButtonClickCommand = new Command(FavoritesButtonClick);
         }
 
-
-        private void FindOrganization(object obj)
+        private void AddedButtonClick()
         {
-            
+            FavoritesElementsIsVisible = true;
+            AddedElementsIsVisible = false;
         }
+
+        private void FavoritesButtonClick()
+        {
+            FavoritesElementsIsVisible = false;
+            AddedElementsIsVisible = true;
+        }
+        
+        private void AddFavorites(object obj)
+        {
+            var element = obj as FavoriteElementViewModel;
+            AddedElements.Remove(element);
+            FavoritesElements.Add(element);
+        }
+        
+        private void RemoveFavorites(object obj)
+        {
+            var element = obj as FavoriteElementViewModel;
+            FavoritesElements.Remove(element);
+            AddedElements.Add(element);
+        }
+        
         private void ElementAdd()
         {
-            FavoritesElements.Add(new FavoritesElement());
-            OnPropertyChanged(nameof(FavoritesElements));
+            AddedElements.Add(new FavoriteElementViewModel());
+            OnPropertyChanged(nameof(AddedElements));
         }
     }
 }
