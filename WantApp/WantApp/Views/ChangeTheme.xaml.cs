@@ -26,7 +26,6 @@ namespace WantApp.Views
             if (mergedDictionaries == null) return;
             mergedDictionaries.Clear();
             mergedDictionaries.Add(new DarkTheme());
-
         }
 
         private void ChangeThemeToWhite_OnClicked(object sender, EventArgs e)

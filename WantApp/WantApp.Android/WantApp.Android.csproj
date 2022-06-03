@@ -62,6 +62,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\FRACTAL.ttf" />
@@ -70,16 +71,26 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\add.png" />
+    <AndroidResource Include="Resources\drawable\AddButton_Plus_DARK.png" />
+    <AndroidResource Include="Resources\drawable\AddButton_Plus_LIGHT.png" />
+    <AndroidResource Include="Resources\drawable\BootScreenFinal.png" />
     <AndroidResource Include="Resources\drawable\burger_logo.png" />
+    <AndroidResource Include="Resources\drawable\DarkTheme_DARK.png" />
+    <AndroidResource Include="Resources\drawable\DarkTheme_LIGHT.png" />
     <AndroidResource Include="Resources\drawable\favorites.png" />
-    <AndroidResource Include="Resources\drawable\favorites_active.png" />
-    <AndroidResource Include="Resources\drawable\favorites_inactive.png" />
-    <AndroidResource Include="Resources\drawable\filtration.png" />
+    <AndroidResource Include="Resources\drawable\Favourite_Active_LIGHT.png" />
+    <AndroidResource Include="Resources\drawable\Favourite_Active_DARK.png" />
+    <AndroidResource Include="Resources\drawable\Favourite_DARK.png" />
+    <AndroidResource Include="Resources\drawable\Favourite_LIGHT.png" />
+    <AndroidResource Include="Resources\drawable\Filter_DARK.png" />
+    <AndroidResource Include="Resources\drawable\Filter_LIGHT.png" />
+    <AndroidResource Include="Resources\drawable\LightTheme_DARK.png" />
+    <AndroidResource Include="Resources\drawable\LightTheme_LIGHT.png" />
     <AndroidResource Include="Resources\drawable\Map.png" />
     <AndroidResource Include="Resources\drawable\mapIcon.png" />
     <AndroidResource Include="Resources\drawable\menu.png" />
     <AndroidResource Include="Resources\drawable\settings.png" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
     <AndroidResource Include="Resources\drawable\themes.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
