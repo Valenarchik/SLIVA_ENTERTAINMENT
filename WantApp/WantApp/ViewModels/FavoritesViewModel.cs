@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Collections.ObjectModel;   
 using System.Windows.Input;
-using WantApp.Models;
-using WantApp.Services;
+using WantApp.ThemesModel;
 using WantApp.Views;
+using System.Linq;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps;
 
 namespace WantApp.ViewModels
 {
@@ -72,6 +69,9 @@ namespace WantApp.ViewModels
             var element = obj as FavoriteElementViewModel;
             AddedElements.Remove(element);
             FavoritesElements.Add(element);
+            var theme = Application.Current.Resources.MergedDictionaries.FirstOrDefault();
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(theme ?? new LightTheme());
         }
         
         private void RemoveFavorites(object obj)
@@ -79,12 +79,18 @@ namespace WantApp.ViewModels
             var element = obj as FavoriteElementViewModel;
             FavoritesElements.Remove(element);
             AddedElements.Add(element);
+            var theme = Application.Current.Resources.MergedDictionaries.FirstOrDefault();
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(theme ?? new LightTheme());
         }
         
         private void ElementAdd()
         {
             AddedElements.Add(new FavoriteElementViewModel());
             OnPropertyChanged(nameof(AddedElements));
+            var theme = Application.Current.Resources.MergedDictionaries.FirstOrDefault();
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(theme ?? new LightTheme());
         }
     }
 }

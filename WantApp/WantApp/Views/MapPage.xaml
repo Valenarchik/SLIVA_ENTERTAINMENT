@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="WantApp.Views.MapPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             BackgroundColor="{DynamicResource FirstColor}"
              IconImageSource="mapIcon.png">
     <ContentPage.Content>
         <Grid RowDefinitions = "*, Auto">
@@ -15,13 +15,13 @@
                   ColumnDefinitions="Auto,Auto">
                 <Label Grid.Row="0" Grid.Column="0" 
                        Text="{Binding RouteDuration, StringFormat='Время: {0} мин'}"
-                       BackgroundColor="Coral"
-                       TextColor="Brown"
+                       BackgroundColor="{DynamicResource FourthColor}"
+                       TextColor="{DynamicResource ThirdColor}"
                        HorizontalOptions="Center"/>
                 <Label Grid.Row="0" Grid.Column="1" 
                        Text="{Binding RouteDistance, StringFormat='Расстояние: {0} м'}"
-                       BackgroundColor="Coral"
-                       TextColor="Brown"
+                       BackgroundColor="{DynamicResource FourthColor}"
+                       TextColor="{DynamicResource ThirdColor}"
                        HorizontalOptions="Center"/>
             </Grid>
         </Grid>

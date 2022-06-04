@@ -6,9 +6,9 @@
 
         <ResourceDictionary Source="ThemesModel/LightTheme.xaml" >
             <Style x:Key="ButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
-                <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
-                <Setter Property="BorderColor" Value="{DynamicResource SecondaryColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource FourthColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource ThirdColor}" />
+                <Setter Property="BorderColor" Value="{DynamicResource FourthColor}" />
                 <Setter Property="BorderWidth" Value="2" />
                 <Setter Property="CornerRadius" Value="15" />
                 <Setter Property="WidthRequest" Value="55" />
@@ -20,35 +20,40 @@
 
             <Style x:Key ="TextStyle"  TargetType ="Label">
                 <Setter Property ="FontFamily" Value="FRACTAL.ttf#FRACTAL"/>
-                <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource ThirdColor}" />
             </Style>
 
             <Style x:Key ="PageStyle"  TargetType ="ContentPage">
-                <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource FirstColor}" />
             </Style>
             
             <Style x:Key ="TabbedPageStyle"  TargetType ="TabbedPage">
-                <Setter Property="BarBackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
-                <Setter Property="BarTextColor" Value="{DynamicResource SecondaryColor}"/>
-                <Setter Property="SelectedTabColor" Value="{DynamicResource SecondaryColor}"/>
-                <Setter Property="UnselectedTabColor" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource FourthColor}" />
+                <Setter Property="BarTextColor" Value="{DynamicResource ThirdColor}"/>
+                <Setter Property="SelectedTabColor" Value="{DynamicResource ThirdColor}"/>
+                <Setter Property="UnselectedTabColor" Value="{DynamicResource ThirdColor}"/>
             </Style>
             
             <Style x:Key="GridStyle" TargetType ="Grid">
-                <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondColor}"/>
             </Style>
             
             <Style x:Key="ImageButtonStyle" TargetType ="ImageButton">
-                <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"/>
-                <Setter Property="Background" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondColor}"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+            
+            <Style x:Key="CategoryButtonStyle" TargetType ="Button">
+                <Setter Property ="FontFamily" Value="FRACTAL.ttf#FRACTAL"/>
+                <Setter Property="FontSize" Value="28" /> 
+                <Setter Property="TextColor" Value="{DynamicResource ThirdColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondColor}"/>
                 <Setter Property="Padding" Value="10"/>
             </Style>
             
             <Style x:Key="AddImageButtonStyle" TargetType ="ImageButton">
-                <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"/>
-                <Setter Property="Background" Value="{DynamicResource SecondaryColor}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondColor}"/>
                 <Setter Property="CornerRadius" Value="15"/>
-                <Setter Property="Margin" Value="15"/>
             </Style>
             
         </ResourceDictionary>

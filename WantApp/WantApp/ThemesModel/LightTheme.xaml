@@ -3,14 +3,15 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     x:Class="WantApp.ThemesModel.LightTheme">
-    
-    <Color x:Key="PrimaryColor">#BFD3DA</Color>
-    <Color x:Key="SecondaryColor">Black</Color>
-    
-    <Color x:Key="PageBackgroundColor">Azure</Color>
-    <Color x:Key="ShellColor" >Azure</Color>
-    <Color x:Key="PrimaryTextColor">Black</Color>
-    <Color x:Key="SecondaryTextColor">Black</Color>
-    <ImageSource x:Key="AddButton">add.png</ImageSource>
+    <Color x:Key="FirstColor">#E7F1F5</Color>
+    <Color x:Key="SecondColor">#8CB0BC</Color>
+    <Color x:Key="ThirdColor">#00293B</Color>
+    <Color x:Key="FourthColor">#8CB0BC</Color>
+    <ImageSource x:Key="AddButton">AddButton_Plus_LIGHT.png</ImageSource>
+    <ImageSource x:Key="FavoriteButton">Favourite_LIGHT.png</ImageSource>
+    <ImageSource x:Key="FavoriteActiveButton">Favourite_Active_LIGHT.png</ImageSource>
+    <ImageSource x:Key="FilterButton">Filter_LIGHT.png</ImageSource>
+    <ImageSource x:Key="DarkTheme">DarkTheme_LIGHT.png</ImageSource>
+    <ImageSource x:Key="LightTheme">LightTheme_LIGHT.png</ImageSource>
     
 </ResourceDictionary>

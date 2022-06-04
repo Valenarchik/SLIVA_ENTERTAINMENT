@@ -3,33 +3,36 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WantApp.Views.ChangeTheme"
-             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             BackgroundColor="{DynamicResource FirstColor}"
              IconImageSource="themes.png">
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="темная темя"
-                    Style="{DynamicResource ButtonStyle}"
-                    VerticalOptions="Center"
-                    Margin="15"
-                    x:Name="ChangeThemeToBlack"
-                    Clicked="ChangeThemeToBlack_OnClicked"
-                    CommandParameter="Themes.BlackTheme"/>
-            <Button Text="Светлая тема"
-                    Style="{DynamicResource ButtonStyle}"
-                    VerticalOptions="Center"
-                    Margin="15"
-                    x:Name="ChangeThemeToWhite"
-                    Clicked="ChangeThemeToWhite_OnClicked"/>
-            <Button Text="+"
-                    Style="{DynamicResource ButtonStyle}"
-                    VerticalOptions="Center"
-                    Margin="15"
-                    x:Name="Plus"/>
-            <Label Style="{DynamicResource TextStyle}"
-                   FontSize="30"
-                   HorizontalTextAlignment="Center"
-                   Text="В данном окне пользователь сможет изменить тему приложения или добавить свою, состоящую из трех цветов"
-                />
-        </StackLayout>
+        <Frame Padding="0"
+               Margin="15"
+               VerticalOptions="Start"
+               CornerRadius="15"
+               HasShadow="False"
+               BackgroundColor="{DynamicResource FourthColor}">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+
+                    <ImageButton Source="{DynamicResource DarkTheme}"
+                                 WidthRequest="55"
+                                 HeightRequest="55"
+                                 VerticalOptions="Center"
+                                 Margin="15"
+                                 x:Name="ChangeThemeToBlack"
+                                 Clicked="ChangeThemeToBlack_OnClicked" />
+                    <ImageButton Source="{DynamicResource LightTheme}"
+                                 WidthRequest="55"
+                                 HeightRequest="55"
+                                 VerticalOptions="Center"
+                                 Margin="15"
+                                 x:Name="ChangeThemeToWhite"
+                                 Clicked="ChangeThemeToWhite_OnClicked" />
+                    <!-- <Label Style="{DynamicResource TextStyle}" -->
+                    <!--        FontSize="30" -->
+                    <!--        HorizontalTextAlignment="Center" -->
+                    <!--        Text="В данном окне пользователь сможет изменить тему приложения или добавить свою, состоящую из трех цветов" /> -->
+                </StackLayout>
+            </Frame>
     </ContentPage.Content>
 </ContentPage>

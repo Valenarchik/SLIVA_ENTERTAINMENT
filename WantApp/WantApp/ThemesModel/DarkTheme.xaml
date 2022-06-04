@@ -3,12 +3,14 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     x:Class="WantApp.ThemesModel.DarkTheme">
-    
-    <Color x:Key="PageBackgroundColor">Black</Color>
-    <Color x:Key="ShellColor">Black</Color>
-    <Color x:Key="PrimaryColor">Black</Color>
-    <Color x:Key="SecondaryColor">White</Color>
-    <Color x:Key="PrimaryTextColor">White</Color>
-    <Color x:Key="SecondaryTextColor">White</Color>
-    <ImageSource x:Key="AddButton">burger_logo.png</ImageSource>
+    <Color x:Key="FirstColor">#14131C</Color>
+    <Color x:Key="SecondColor">#02000F</Color>
+    <Color x:Key="ThirdColor">#FFFFFF</Color>
+    <Color x:Key="FourthColor">#22222C</Color>
+    <ImageSource x:Key="AddButton">AddButton_Plus_DARK.png</ImageSource>
+    <ImageSource x:Key="FavoriteButton">Favourite_DARK.png</ImageSource>
+    <ImageSource x:Key="FavoriteActiveButton">Favourite_Active_DARK.png</ImageSource>
+    <ImageSource x:Key="FilterButton">Filter_DARK.png</ImageSource>
+    <ImageSource x:Key="DarkTheme">DarkTheme_DARK.png</ImageSource>
+    <ImageSource x:Key="LightTheme">LightTheme_DARK.png</ImageSource>
 </ResourceDictionary>
