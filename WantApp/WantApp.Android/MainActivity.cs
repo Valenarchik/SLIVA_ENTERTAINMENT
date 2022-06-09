@@ -1,9 +1,18 @@
 ﻿using System;
+using System.Linq;
 using Android;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Android.Views;
+using WantApp.Droid;
+using WantApp.ThemesModel;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using Color = System.Drawing.Color;
+
+[assembly: Dependency(typeof(Environmet))]
 
 namespace WantApp.Droid
 {
@@ -23,6 +32,10 @@ namespace WantApp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            SetStatusBarColor(new Android.Graphics.Color(231, 241, 245));
+
+            Window.DecorView.SystemUiVisibility = (StatusBarVisibility) SystemUiFlags.LightStatusBar;
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
@@ -63,6 +76,26 @@ namespace WantApp.Droid
                 {
                     RequestPermissions(LocationPermissions, RequestLocationId);
                 }
+            }
+        }
+    }
+
+    public class Environmet : IEnvironment
+    {
+        public void SetStatusBarColor(Color color, bool darkStatusBarTint)
+        {
+            if (Build.VERSION.SdkInt < BuildVersionCodes.Lollipop)
+                return;
+            var activity = Platform.CurrentActivity;
+            var window = activity.Window;
+            window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+            window.ClearFlags(WindowManagerFlags.TranslucentStatus);
+            window.SetStatusBarColor(color.ToPlatformColor());
+
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+            {
+                var flag = (StatusBarVisibility) SystemUiFlags.LightStatusBar;
+                window.DecorView.SystemUiVisibility = darkStatusBarTint ? flag : 0;
             }
         }
     }

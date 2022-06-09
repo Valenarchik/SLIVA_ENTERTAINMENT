@@ -26,6 +26,8 @@ namespace WantApp.Views
             if (mergedDictionaries == null) return;
             mergedDictionaries.Clear();
             mergedDictionaries.Add(new DarkTheme());
+            var environment = DependencyService.Get<IEnvironment>();
+            environment?.SetStatusBarColor(Color.FromHex("#14131C"), false);
         }
 
         private void ChangeThemeToWhite_OnClicked(object sender, EventArgs e)
@@ -34,6 +36,8 @@ namespace WantApp.Views
             if (mergedDictionaries == null) return;
             mergedDictionaries.Clear();
             mergedDictionaries.Add(new LightTheme());
+            var environment = DependencyService.Get<IEnvironment>();
+            environment?.SetStatusBarColor(Color.FromHex("#E7F1F5"), true);
         }
     }
 }

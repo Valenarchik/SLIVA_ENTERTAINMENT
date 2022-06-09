@@ -55,7 +55,6 @@
                 <Setter Property="BackgroundColor" Value="{DynamicResource SecondColor}"/>
                 <Setter Property="CornerRadius" Value="15"/>
             </Style>
-            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
