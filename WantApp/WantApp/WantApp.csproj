@@ -22,12 +22,11 @@
     <EmbeddedResource Update="Views\MapPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Menu.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\Settings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <None Remove="Fonts\SF-Pro-Display-Semibold.otf" />
+    <EmbeddedResource Include="Fonts\SF-Pro-Display-Semibold.otf" />
   </ItemGroup>
 
   <ItemGroup>

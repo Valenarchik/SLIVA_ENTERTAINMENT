@@ -7,23 +7,32 @@
              BackgroundColor="{DynamicResource FirstColor}"
              IconImageSource="mapIcon.png">
     <ContentPage.Content>
-        <Grid RowDefinitions = "*, Auto">
+        <Grid RowDefinitions="*, Auto">
             <maps:Map x:Name="Map" IsShowingUser="True" Grid.Row="0" Grid.RowSpan="2" />
-            <Grid Grid.Row="1"
-                  HorizontalOptions="Center"
-                  RowDefinitions = "Auto"
-                  ColumnDefinitions="Auto,Auto">
-                <Label Grid.Row="0" Grid.Column="0" 
-                       Text="{Binding RouteDuration, StringFormat='Время: {0} мин'}"
-                       BackgroundColor="{DynamicResource FourthColor}"
-                       TextColor="{DynamicResource ThirdColor}"
-                       HorizontalOptions="Center"/>
-                <Label Grid.Row="0" Grid.Column="1" 
-                       Text="{Binding RouteDistance, StringFormat='Расстояние: {0} м'}"
-                       BackgroundColor="{DynamicResource FourthColor}"
-                       TextColor="{DynamicResource ThirdColor}"
-                       HorizontalOptions="Center"/>
-            </Grid>
+            <Frame Grid.Row="1" 
+                   BackgroundColor="{DynamicResource FourthColor}"
+                   Padding="0"
+                   Margin="90, 13"
+                   CornerRadius="15">
+                <Grid 
+                      HorizontalOptions="Center"
+                      VerticalOptions="End"
+                      RowDefinitions="Auto"
+                      ColumnDefinitions="*, *"
+                      Margin="10"
+                      ColumnSpacing="-5">
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Style="{DynamicResource TextStyle}"
+                           Text="{Binding RouteDuration, StringFormat='Время: {0} мин'}"
+                           BackgroundColor="{DynamicResource FourthColor}"
+                           TextColor="{DynamicResource ThirdColor}"/>
+                    <Label Grid.Row="0" Grid.Column="1"
+                           Style="{DynamicResource TextStyle}"
+                           Text="{Binding RouteDistance, StringFormat='Расстояние: {0} м'}"
+                           BackgroundColor="{DynamicResource FourthColor}"
+                           TextColor="{DynamicResource ThirdColor}"/>
+                </Grid>
+            </Frame>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

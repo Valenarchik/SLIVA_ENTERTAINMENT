@@ -8,8 +8,7 @@
             Style="{DynamicResource TabbedPageStyle}"
             android:TabbedPage.ToolbarPlacement="Bottom">
     <views:ChangeTheme />
-    <views:Favorites />
-    <views:MapPage />
     <views:Menu />
+    <views:MapPage />
     <views:Settings />
 </TabbedPage>

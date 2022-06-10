@@ -1,20 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security;
+using WantApp.Models;
+using WantApp.Services;
 using WantApp.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Xamarin.Forms.Maps;
+
 
 namespace WantApp.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Menu : ContentPage
     {
+        private readonly FavoritesViewModel viewModel = new FavoritesViewModel();
+        private readonly RouteViewModel routeViewModel = Intenface.routeViewModel;
         public Menu()
         {
             InitializeComponent();
+            BindingContext = viewModel;
+        }
+        
+        private void NextRouteButton_OnClicked(object sender, EventArgs e)
+        {
+            if (Parent is TabbedApp parentPage) parentPage.CurrentPage = parentPage.Children[2];
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WantApp.Views.Settings"
@@ -7,11 +8,35 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Style="{DynamicResource TextStyle}"
-                   Text="Панель настроек будет включать в себя возможность смены языка, корректировка звука и прочие параметры, регулировка которых позволит сделать приложение удобнее для пользователя"
-                   FontSize="35"
+                   Text="Настройки"
+                   FontSize="40"
                    HorizontalTextAlignment="Center"
-                   VerticalOptions="CenterAndExpand"
+                   VerticalOptions="Start"
                    HorizontalOptions="CenterAndExpand" />
+            <StackLayout Margin="10">
+                <Label Text="Язык"
+                       HorizontalOptions="Start"
+                       Style="{DynamicResource TextStyle}" 
+                       FontSize="Large" />
+                <RadioButton Style="{DynamicResource TextStyle}" 
+                             Content="Русский" 
+                             Value="languages" 
+                             FontSize="Small" 
+                             BorderColor="{DynamicResource FourthColor}" 
+                             BackgroundColor="{DynamicResource FourthColor}"/>
+                <RadioButton Style="{DynamicResource TextStyle}" 
+                             Content="English" 
+                             Value="languages" 
+                             FontSize="Small" 
+                             BorderColor="{DynamicResource FourthColor}" 
+                             BackgroundColor="{DynamicResource FourthColor}"/>
+                <RadioButton Style="{DynamicResource TextStyle}" 
+                             Content="Deutsch" 
+                             Value="languages" 
+                             FontSize="Small"
+                             BorderColor="{DynamicResource FourthColor}" 
+                             BackgroundColor="{DynamicResource FourthColor}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
